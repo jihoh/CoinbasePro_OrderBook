@@ -17,6 +17,35 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <mainClass>com.cbp.main.OrderbookApplication</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>true</executable>
+                    <jvmArguments>
+                        -XX:+UseParallelGC
+                        -Xms2g
+                        -Xmx2g
+                        -XX:NewRatio=2
+                        -verbose:gc
+                        -DXX:+PrintGCDetails
+                        -DXX:+PrintGCDateStamps
+                        -DXX:+PrintGCApplicationStoppedTime
+                        -DXX:+PrintGCApplicationConcurrentTime
+                    </jvmArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
